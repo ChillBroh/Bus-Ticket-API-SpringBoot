@@ -14,4 +14,6 @@ public interface TopUpAccRepository extends JpaRepository<TopUpAcc, Integer> {
     List<TopUpAcc> findAllByUser(@Param("currentUser") User currentUser);
     @Query("SELECT a FROM TopUpAcc a WHERE a.id = :accId")
     TopUpAcc findByAccId(@Param("accId")Integer accId);
+    @Query("SELECT a FROM TopUpAcc a WHERE a.user.id= :id")
+    TopUpAcc findAccByUserId(@Param("id") Integer id);
 }
