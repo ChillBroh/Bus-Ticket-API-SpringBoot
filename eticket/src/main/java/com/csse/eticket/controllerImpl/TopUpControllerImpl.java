@@ -4,9 +4,11 @@ import com.csse.eticket.constants.ETicketConstants;
 import com.csse.eticket.controller.TopUpController;
 import com.csse.eticket.dao.TopUpAccDao;
 import com.csse.eticket.dao.TopUpDao;
+import com.csse.eticket.service.PassengerService;
 import com.csse.eticket.service.TopUpService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,6 +19,9 @@ import java.util.List;
 public class TopUpControllerImpl implements TopUpController {
     @Autowired
     private final TopUpService topUpService;
+
+    @Autowired
+    PassengerService passengerService;
 
     public TopUpControllerImpl(TopUpService topUpService) {
         this.topUpService = topUpService;
@@ -50,5 +55,15 @@ public class TopUpControllerImpl implements TopUpController {
             log.error(ex.getMessage());
         }
         return ResponseEntity.internalServerError().body(ETicketConstants.SOMETHING_WENT_WRONG);
+    }
+
+    @Override
+    public ResponseEntity<?> deductAmount(Integer id, float balance) {
+        try{
+            return ResponseEntity.status(HttpStatus.OK).body(passengerService.deductAmount(id, balance));
+        }catch(Exception e){
+            log.error(e.getMessage());
+        }
+        return null;
     }
 }

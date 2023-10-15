@@ -43,12 +43,13 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "dev/umesha",
-    "last_opened_file_path": "D:/Bus-Ticket-API--SpringBoot/eticket",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Projects/CSSE NEW/Bus-Ticket-API-SpringBoot",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
     "spring.configuration.checksum": "3c3c72c27ea95729784f579480b3661e",
     "vue.rearranger.settings.migration": "true"
   }
@@ -61,7 +62,7 @@
   </component>
   <component name="RunManager">
     <configuration name="EticketApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="eticket" />
+      <option name="ALTERNATIVE_JRE_PATH" value="C:\Program Files\Java\jdk-17" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.csse.eticket.EticketApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -78,6 +79,9 @@
       <updated>1697358946742</updated>
       <workItem from="1697358947763" duration="3893000" />
       <workItem from="1697363178926" duration="68000" />
+      <workItem from="1697389020636" duration="28000" />
+      <workItem from="1697389062176" duration="124000" />
+      <workItem from="1697389192652" duration="216000" />
     </task>
     <servers />
   </component>

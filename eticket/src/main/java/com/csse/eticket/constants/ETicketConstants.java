@@ -10,4 +10,6 @@ public class ETicketConstants {
     public static final String BAD_REQUEST = "Bad Request";
 
     public static final String NOT_FOUND = "Not Found";
+
+    public static final String SUCCESSFULLY_DEDUCTED = "Successfully Deducted";
 }
