@@ -1,24 +1,25 @@
-package com.csse.eticket.serviceImpl.topupacc;
+package com.csse.eticket.serviceImpl.recharge;
 
 import com.csse.eticket.jwt.JwtFilter;
-import com.csse.eticket.model.topup.TopUpAcc;
+import com.csse.eticket.model.Recharge;
 import com.csse.eticket.model.users.User;
+import com.csse.eticket.repository.RechargeRepository;
 import com.csse.eticket.repository.topups.TopUpAccRepository;
 import com.csse.eticket.repository.users.UserRepository;
-import com.csse.eticket.service.TopUpAccCommand;
+import com.csse.eticket.service.RechargeCommand;
 import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 
-public class GetTopUpAccByUser implements TopUpAccCommand {
-    private final TopUpAccRepository topUpAccRepository;
+public class GetRechargesByUser implements RechargeCommand {
+    private final RechargeRepository rechargeRepository;
 
     private final UserRepository userRepository;
 
     private final JwtFilter jwtFilter;
 
-    public GetTopUpAccByUser(TopUpAccRepository topUpAccRepository, UserRepository userRepository, JwtFilter jwtFilter) {
-        this.topUpAccRepository = topUpAccRepository;
+    public GetRechargesByUser(RechargeRepository rechargeRepository, UserRepository userRepository, JwtFilter jwtFilter) {
+        this.rechargeRepository = rechargeRepository;
         this.userRepository = userRepository;
         this.jwtFilter = jwtFilter;
     }
@@ -29,8 +30,8 @@ public class GetTopUpAccByUser implements TopUpAccCommand {
 
         User user = userRepository.findByEmailId(username);
 
-        List<TopUpAcc> topUpAcc = topUpAccRepository.findAccByUserId(user.getId());
+        List<Recharge> recharges = rechargeRepository.findRechargesByUserId(user.getId());
 
-        return ResponseEntity.ok().body(topUpAcc);
+        return ResponseEntity.ok().body(recharges);
     }
 }
