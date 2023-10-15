@@ -10,6 +10,7 @@ import org.hibernate.annotations.DynamicUpdate;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 @Data
 @Entity
@@ -17,21 +18,21 @@ import java.time.LocalDate;
 @DynamicUpdate
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "transactions")
-public class Transactions implements Serializable {
+@Table(name = "recharge")
+public class Recharge implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "transaction_id")
+    @Column(name = "recharge_id")
     private Integer id;
 
     @Column(name = "amount")
     private float amount;
 
-    @Column(name = "type")
-    private String type;
-
     @Column(name = "date")
     private LocalDate date;
+
+    @Column(name = "time")
+    private LocalTime time;
 
     @OneToOne
     @JoinColumn(name = "topup_id")
