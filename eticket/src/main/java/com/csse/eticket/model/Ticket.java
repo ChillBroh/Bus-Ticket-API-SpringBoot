@@ -16,6 +16,5 @@ public class Ticket {
 
     @Column(columnDefinition = "TEXT")
     private String qrData;
-
 }
 
