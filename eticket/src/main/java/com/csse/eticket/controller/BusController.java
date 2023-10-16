@@ -20,4 +20,7 @@ public interface BusController {
 
     @PostMapping("/find")
     ResponseEntity<?> findBus(@RequestBody BusDao busDao);
+
+    @PostMapping("/add/{busNo}/{amount}")
+    ResponseEntity<?> addAmount(@PathVariable String busNo, @PathVariable float amount);
 }
