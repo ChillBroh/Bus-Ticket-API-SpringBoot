@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
+
 @RestController
 @Slf4j
 public class TransactionControllerImpl implements TransactionController {
@@ -23,4 +24,11 @@ public class TransactionControllerImpl implements TransactionController {
         }
         return null;
     }
+
+    @Override
+    public ResponseEntity<?> getAllTransactions() {
+        return ResponseEntity.status(HttpStatus.OK).body(transactionService.getAllTransactions());
+    }
+
+
 }

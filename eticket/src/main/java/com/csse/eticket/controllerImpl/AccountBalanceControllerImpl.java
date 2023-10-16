@@ -3,8 +3,6 @@ package com.csse.eticket.controllerImpl;
 import com.csse.eticket.controller.AccountBalanceController;
 import com.csse.eticket.service.PassengerService;
 import com.csse.eticket.service.TransactionService;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,8 +17,6 @@ public class AccountBalanceControllerImpl implements AccountBalanceController {
     @Autowired
     PassengerService passengerService;
 
-    @Autowired
-    TransactionService transactionService;
 
     @Override
     public ResponseEntity<?> deductAmount(Integer id, float balance) {
