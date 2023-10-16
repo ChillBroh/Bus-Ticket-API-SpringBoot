@@ -45,6 +45,5 @@ public class TicketServiceImpl implements TicketService {
     public Ticket getTicektsDesc() {
         List<Ticket> ticketList =  ticketRepository.getTicketsDesc();
         return ticketList.get(0);
-
     }
 }
