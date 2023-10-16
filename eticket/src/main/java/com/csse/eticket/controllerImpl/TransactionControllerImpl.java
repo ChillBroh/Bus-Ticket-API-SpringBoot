@@ -16,9 +16,9 @@ public class TransactionControllerImpl implements TransactionController {
     @Autowired
     TransactionService transactionService;
     @Override
-    public ResponseEntity<?> addTransaction(float amount) {
+    public ResponseEntity<?> addTransaction(float amount, String type) {
         try{
-            return ResponseEntity.status(HttpStatus.OK).body(transactionService.AddTransaction(amount));
+            return ResponseEntity.status(HttpStatus.OK).body(transactionService.AddTransaction(amount, type));
         }catch(Exception e){
             log.error(e.getMessage());
         }
@@ -29,6 +29,5 @@ public class TransactionControllerImpl implements TransactionController {
     public ResponseEntity<?> getAllTransactions() {
         return ResponseEntity.status(HttpStatus.OK).body(transactionService.getAllTransactions());
     }
-
 
 }

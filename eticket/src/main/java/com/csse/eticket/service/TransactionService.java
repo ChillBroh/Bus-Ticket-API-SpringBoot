@@ -8,7 +8,9 @@ import java.util.List;
 
 public interface TransactionService {
 
-    TransactionDao AddTransaction(float amount);
+    TransactionDao AddTransaction(float amount, String type);
 
     List<TransactionDao> getAllTransactions();
+
+
 }

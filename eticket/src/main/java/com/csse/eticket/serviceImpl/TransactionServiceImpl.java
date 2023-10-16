@@ -23,13 +23,14 @@ public class TransactionServiceImpl implements TransactionService {
     ModelMapper modelMapper;
 
     @Override
-    public TransactionDao AddTransaction(float amount) {
+    public TransactionDao AddTransaction(float amount, String type) {
 
         LocalDateTime date = LocalDateTime.now();
 
         Transaction transaction = new Transaction();
         transaction.setAmount(amount);
         transaction.setDate(date);
+        transaction.setType(type);
         transactionRepository.save(transaction);
         return modelMapper.map(transaction, TransactionDao.class);
     }
@@ -43,4 +44,5 @@ public class TransactionServiceImpl implements TransactionService {
         }
         return transactionDaoList;
     }
+
 }
