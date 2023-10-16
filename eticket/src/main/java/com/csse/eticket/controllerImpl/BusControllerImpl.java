@@ -6,8 +6,10 @@ import com.csse.eticket.repository.BusRepository;
 import com.csse.eticket.repository.BusRouteRepository;
 import com.csse.eticket.repository.users.UserRepository;
 import com.csse.eticket.service.BusCommand;
+import com.csse.eticket.service.BusService;
 import com.csse.eticket.serviceImpl.bus.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,6 +22,9 @@ public class BusControllerImpl implements BusController {
     private final UserRepository userRepository;
 
     private final BusRouteRepository busRouteRepository;
+
+    @Autowired
+    BusService busService;
 
     @Autowired
     public BusControllerImpl(BusRepository busRepository, BusCommandInvoker busCommandInvoker, UserRepository userRepository, BusRouteRepository busRouteRepository) {
@@ -57,5 +62,10 @@ public class BusControllerImpl implements BusController {
     public ResponseEntity<?> findBus(BusDao busDao) {
         BusCommand findBusCommand = new FindBusCommand(busRepository, busDao);
         return ResponseEntity.ok().body(busCommandInvoker.executeCommand(findBusCommand));
+    }
+
+    @Override
+    public ResponseEntity<?> addAmount(String busNo ,float amount) {
+        return ResponseEntity.status(HttpStatus.OK).body(busService.addAmount(busNo, amount));
     }
 }
